@@ -1,0 +1,12 @@
+gcc -c -Wall -Werror foo1.c
+
+gcc -c -Wall -Werror foo2.c
+
+ar -crs libfoo.a foo1.o foo2.o
+
+ar -t libfoo.a
+// the -t (table) option with ar we can see the modules inside the library file
+
+gcc -c -Wall -Werror main.c
+
+gcc  main.o  -L. -lfoo -o ./main-static
